@@ -21,12 +21,12 @@ public class Patient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	private int patientId;
+	private Integer patientId;
 	private String patientName;
 	private int age;
 	private String gender;
 	@Column(nullable = false)
-	private int phoneNumber;
+	private String	 phoneNumber;
 	@Column(nullable = false)
 	private String email;
 	@OneToMany(mappedBy = "patient")
@@ -35,54 +35,55 @@ public class Patient {
 	@OneToMany(mappedBy = "patient")
 	@JsonIgnore
 	private List<MedicalRecord> medicalRecords;
-	public int getPatientId() {
+	public synchronized Integer getPatientId() {
 		return patientId;
 	}
-	public void setPatientId(int patientId) {
+	public synchronized void setPatientId(Integer patientId) {
 		this.patientId = patientId;
 	}
-	public String getPatientName() {
+	public synchronized String getPatientName() {
 		return patientName;
 	}
-	public void setPatientName(String patientName) {
+	public synchronized void setPatientName(String patientName) {
 		this.patientName = patientName;
 	}
-	public int getAge() {
+	public synchronized int getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public synchronized void setAge(int age) {
 		this.age = age;
 	}
-	public String getGender() {
+	public synchronized String getGender() {
 		return gender;
 	}
-	public void setGender(String gender) {
+	public synchronized void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getPhoneNumber() {
+	public synchronized String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public synchronized void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getEmail() {
+	public synchronized String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public synchronized void setEmail(String email) {
 		this.email = email;
 	}
-	public List<Appointment> getAppointments() {
+	public synchronized List<Appointment> getAppointments() {
 		return appointments;
 	}
-	public void setAppointments(List<Appointment> appointments) {
+	public synchronized void setAppointments(List<Appointment> appointments) {
 		this.appointments = appointments;
 	}
-	public List<MedicalRecord> getMedicalRecords() {
+	public synchronized List<MedicalRecord> getMedicalRecords() {
 		return medicalRecords;
 	}
-	public void setMedicalRecords(List<MedicalRecord> medicalRecords) {
+	public synchronized void setMedicalRecords(List<MedicalRecord> medicalRecords) {
 		this.medicalRecords = medicalRecords;
 	}
+	
 
 
 	

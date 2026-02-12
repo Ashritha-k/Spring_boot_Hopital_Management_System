@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -32,7 +33,7 @@ public class Doctor {
 	  
 	  @ManyToOne
 	  @JoinColumn(name= "department_id")
-	  @JsonIgnore
+	 
 	  private Department department;
 
 	  @OneToMany(mappedBy = "doctor")
@@ -41,50 +42,50 @@ public class Doctor {
 	  @OneToMany(mappedBy = "doctor")
 	  @JsonIgnore
 	  private List<MedicalRecord> medicalRecords;
-	
 	  public synchronized Integer getDoctorId() {
-		return doctorId;
-	}
+		  return doctorId;
+	  }
 	  public synchronized void setDoctorId(Integer doctorId) {
 		  this.doctorId = doctorId;
 	  }
-	  public String getDoctorName() {
+	  public synchronized String getDoctorName() {
 		  return doctorName;
 	  }
-	  public void setDoctorName(String doctorName) {
+	  public synchronized void setDoctorName(String doctorName) {
 		  this.doctorName = doctorName;
 	  }
-	  public String getSpecialization() {
+	  public synchronized String getSpecialization() {
 		  return specialization;
 	  }
-	  public void setSpecialization(String specialization) {
+	  public synchronized void setSpecialization(String specialization) {
 		  this.specialization = specialization;
 	  }
-	  public List<String> getAvailableDays() {
+	  public synchronized List<String> getAvailableDays() {
 		  return availableDays;
 	  }
-	  public void setAvailableDays(List<String> availableDays) {
+	  public synchronized void setAvailableDays(List<String> availableDays) {
 		  this.availableDays = availableDays;
 	  }
-	  public Department getDepartment() {
+	  public synchronized Department getDepartment() {
 		  return department;
 	  }
-	  public void setDepartment(Department department) {
+	  public synchronized void setDepartment(Department department) {
 		  this.department = department;
 	  }
-	  public List<Appointment> getAppointments() {
+	  public synchronized List<Appointment> getAppointments() {
 		  return appointments;
 	  }
-	  public void setAppointments(List<Appointment> appointments) {
+	  public synchronized void setAppointments(List<Appointment> appointments) {
 		  this.appointments = appointments;
 	  }
-	  public List<MedicalRecord> getMedicalRecords() {
+	  public synchronized List<MedicalRecord> getMedicalRecords() {
 		  return medicalRecords;
 	  }
-	  public void setMedicalRecords(List<MedicalRecord> medicalRecords) {
+	  public synchronized void setMedicalRecords(List<MedicalRecord> medicalRecords) {
 		  this.medicalRecords = medicalRecords;
 	  }
-
+	
+	 
 
 	
 

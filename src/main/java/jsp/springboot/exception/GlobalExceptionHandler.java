@@ -30,6 +30,54 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(EmailAlreadyExistsException.class)
+	public ResponseEntity<ResponseStructure<String>> handleEAEE(EmailAlreadyExistsException exception)
+	{
+		ResponseStructure<String> response = new ResponseStructure<String>();
+		response.setStatusCode(HttpStatus.CONFLICT.value());
+		response.setMessage(exception.getMessage());
+		response.setData("Failure");
+		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.CONFLICT);
+	}
+	@ExceptionHandler(PhoneNumberAlreadyExistsException.class)
+	public ResponseEntity<ResponseStructure<String>> handlePnAEE(PhoneNumberAlreadyExistsException exception)
+	{
+		ResponseStructure<String> response = new ResponseStructure<String>();
+		response.setStatusCode(HttpStatus.CONFLICT.value());
+		response.setMessage(exception.getMessage());
+		response.setData("Failure");
+		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.CONFLICT);
+	}
+	@ExceptionHandler(DoctorAlreadyBookedException.class)
+	public ResponseEntity<ResponseStructure<String>> handleDABE(DoctorAlreadyBookedException exception)
+	{
+		ResponseStructure<String> response = new ResponseStructure<String>();
+		response.setStatusCode(HttpStatus.CONFLICT.value());
+		response.setMessage(exception.getMessage());
+		response.setData("Failure");
+		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.CONFLICT);
+	}
+	@ExceptionHandler(PatientAlreadyBookedException.class)
+	public ResponseEntity<ResponseStructure<String>> handlePABE(PatientAlreadyBookedException exception)
+	{
+		ResponseStructure<String> response = new ResponseStructure<String>();
+		response.setStatusCode(HttpStatus.CONFLICT.value());
+		response.setMessage(exception.getMessage());
+		response.setData("Failure");
+		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.CONFLICT);
+	}
+	@ExceptionHandler(NoCompletedAppointmentException.class)
+	public ResponseEntity<ResponseStructure<String>> handleNCAE(NoCompletedAppointmentException exception)
+	{
+		ResponseStructure<String> response = new ResponseStructure<String>();
+		response.setStatusCode(HttpStatus.CONFLICT.value());
+		response.setMessage(exception.getMessage());
+		response.setData("Failure");
+		return  new ResponseEntity<ResponseStructure<String>>(response,HttpStatus.CONFLICT);
+	}
+	
+	
+	
 
 	
 }
