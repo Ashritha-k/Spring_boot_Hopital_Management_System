@@ -21,6 +21,10 @@ public class DepartmentDao {
 	{
 		return departmentRepository.save(department);
 	}
+	public List<Department >createMultipleDepartment(List<Department> department)
+	{
+		return departmentRepository.saveAll(department);
+	}
 	public List<Department> fetchAllDepartment(){
 	List<Department> departments = departmentRepository.findAll();
 	if(departments.isEmpty())

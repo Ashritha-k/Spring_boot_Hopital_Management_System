@@ -29,6 +29,16 @@ public class DepartmentService {
         
 		
 	}
+	public ResponseEntity<ResponseStructure<List<Department>>> createMultipleDepartment(List<Department >department)
+	{
+		ResponseStructure<List<Department>> response = new  ResponseStructure<List<Department>>();
+        response.setStatusCode(HttpStatus.CREATED.value());
+        response.setMessage("Department created");
+        response.setData(departmentDao.createMultipleDepartment(department));
+        return new  ResponseEntity<ResponseStructure<List<Department>>>(response,HttpStatus.CREATED);
+        
+		
+	}
 	public ResponseEntity<ResponseStructure<List<Department>>> fetchAllDepartment()
 	
 	{
