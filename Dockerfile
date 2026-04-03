@@ -1,10 +1,10 @@
-# Build stage
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+# Build stage - Use Java 21
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Runtime stage (lightweight)
+# Runtime stage - Lightweight Java 21
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
